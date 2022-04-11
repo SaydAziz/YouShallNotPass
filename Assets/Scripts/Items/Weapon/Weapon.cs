@@ -5,13 +5,13 @@ using UnityEngine;
 public class Weapon : Item
 {
     
-    void Start()
-    {
-        
-    }
-
     public override void Use()
     {
         Debug.Log(itemName + "was used.");
+    }
+
+    protected override void Start()
+    {
+        base.Start();
     }
 }
