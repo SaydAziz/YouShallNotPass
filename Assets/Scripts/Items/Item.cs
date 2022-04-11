@@ -6,7 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class Item : MonoBehaviour
 {
-
+    
     [SerializeField] protected string _itemName;
 
     public string itemName
@@ -28,6 +28,7 @@ public class Item : MonoBehaviour
     public Item Dupe(Collision2D other)
     {
         Item addedItem = Instantiate(this, other.gameObject.transform);
+        addedItem.transform.localPosition = new Vector2(0, 0);
         addedItem.CopyData(itemName);
         return addedItem;
     }

@@ -16,11 +16,6 @@ public class Inventory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        foreach (Item item in itemInventory)
-        {
-            string i = item.itemName;
-            print(i);
-        }
     }
 
     public void AddItem(Item item)
