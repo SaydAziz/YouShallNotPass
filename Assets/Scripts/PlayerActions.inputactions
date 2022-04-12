@@ -8,7 +8,7 @@
                 {
                     "name": "DoMove",
                     "type": "Value",
-                    "id": "b7c7d478-6231-49f9-942f-18d12eec4978",
+                    "id": "65acde58-7e40-4733-a1bc-e4791368d12a",
                     "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": "",
@@ -17,7 +17,7 @@
                 {
                     "name": "DoJump",
                     "type": "Button",
-                    "id": "34c8282a-07d6-4b92-b255-391650f493b7",
+                    "id": "3eedaa00-9a41-4b63-88be-ee6cb3d10e4d",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -26,7 +26,7 @@
                 {
                     "name": "DoCrouch",
                     "type": "Button",
-                    "id": "b440f050-e90e-466b-84fc-c07a618c6bd9",
+                    "id": "afba0102-af2d-449b-8535-a58fd837665d",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -35,7 +35,7 @@
                 {
                     "name": "DoUse",
                     "type": "Button",
-                    "id": "fb46e0a5-3b0b-49b6-bc46-47caa562b434",
+                    "id": "00e9422c-1ee6-4a4b-8fa9-6eca6f98f085",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -45,80 +45,168 @@
             "bindings": [
                 {
                     "name": "Left/Right",
-                    "id": "369f88f3-6c2a-44f3-bf0a-632462ff8730",
+                    "id": "00a16fe1-0d11-4fc4-acc0-31bd8468ddd8",
                     "path": "1DAxis",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Player2",
                     "action": "DoMove",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "negative",
-                    "id": "0d32bacf-a5a3-4a3b-b607-4ceac1fb0d53",
-                    "path": "<Keyboard>/a",
+                    "id": "a0f3f37e-1be9-4a06-89a8-b8dd5239718f",
+                    "path": "<Gamepad>/leftStick/left",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard",
+                    "groups": "Player2",
                     "action": "DoMove",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "positive",
-                    "id": "bca4493f-ccc2-4dad-92fd-f5956ce36b88",
-                    "path": "<Keyboard>/d",
+                    "id": "d42e0a64-aacc-4de0-bb59-7db6762ad328",
+                    "path": "<Gamepad>/leftStick/right",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard",
+                    "groups": "Player2",
                     "action": "DoMove",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "",
-                    "id": "35c5c166-dc08-44cb-85ec-9023525a1dd0",
-                    "path": "<Keyboard>/w",
+                    "id": "205bc39b-6bec-4f91-919a-272c1f9ddb0e",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard",
+                    "groups": "Player2",
                     "action": "DoJump",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "efaa7977-474e-40a1-865b-1aad7770429c",
-                    "path": "<Keyboard>/s",
+                    "id": "b67c83b0-f709-4ae8-aefa-281aef776b26",
+                    "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Player1",
+                    "action": "DoJump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "18e08a8e-996d-4485-8f7b-eb014e55efcc",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Player2",
                     "action": "DoCrouch",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "885be65c-fcec-4c8d-bb4c-dac830fec502",
-                    "path": "<Keyboard>/space",
+                    "id": "aa3886f0-88b2-4e26-a00a-8ed02018e780",
+                    "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard",
+                    "groups": "Player1",
+                    "action": "DoCrouch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f8e6e1e3-aa1c-4658-b318-2c8ec2d0892a",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Player2",
                     "action": "DoUse",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "81bf5ef4-e563-4924-a7cb-0aa6bc24b01c",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Player1",
+                    "action": "DoUse",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "Left/Right",
+                    "id": "35c608b9-49b6-410f-9875-a67a9cd5b995",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Player1",
+                    "action": "DoMove",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "56562605-4ad1-4cb0-8be4-c3c4e162d152",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Player1",
+                    "action": "DoMove",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "d903b012-ad47-48cc-8793-141fb9312045",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Player1",
+                    "action": "DoMove",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }
     ],
     "controlSchemes": [
         {
-            "name": "Keyboard",
-            "bindingGroup": "Keyboard",
+            "name": "Player1",
+            "bindingGroup": "Player1",
             "devices": [
                 {
                     "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        },
+        {
+            "name": "Player1",
+            "bindingGroup": "Player1",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        },
+        {
+            "name": "Player2",
+            "bindingGroup": "Player2",
+            "devices": [
+                {
+                    "devicePath": "<Gamepad>",
                     "isOptional": false,
                     "isOR": false
                 }

@@ -39,9 +39,17 @@ public class Item : MonoBehaviour
     {
         if (other.collider.tag == "Player")
         {
-            isPickedUp = true;
-            other.gameObject.GetComponent<Inventory>().AddItem(Dupe(other));
-            Destroy(this.gameObject);
+            if (isPickedUp)
+            {
+                Debug.Log("TESTING");
+                other.gameObject.GetComponent<Player>().TakeDamage(25f);   
+            }
+            else
+            {    
+                isPickedUp = true;
+                other.gameObject.GetComponent<Inventory>().AddItem(Dupe(other));
+                Destroy(this.gameObject);
+            }
         }
     }
 
