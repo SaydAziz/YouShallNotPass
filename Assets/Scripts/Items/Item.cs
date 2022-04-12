@@ -17,12 +17,13 @@ public class Item : MonoBehaviour
     private Vector2 lerpPos2;
     private float fraction = 0;
 
-    private bool isPickedUp = false;
+    protected bool isPickedUp = false;
 
     protected virtual void Start()
     {
         lerpPos1 = transform.position; 
         lerpPos2 = new Vector2(transform.position.x, transform.position.y + .3f);
+        
     }
 
     void FixedUpdate()
