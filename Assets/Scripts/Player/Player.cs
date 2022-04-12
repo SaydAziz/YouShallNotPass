@@ -7,10 +7,9 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     private Inventory playerInv;
-    private Collider2D collider;
+    private new Collider2D collider;
     private RaycastHit2D hit;
 
-    private bool canJump = true;
     private float health = 100;
     void Awake()
     {
