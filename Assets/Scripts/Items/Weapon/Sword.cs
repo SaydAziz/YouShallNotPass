@@ -5,13 +5,13 @@ using UnityEngine;
 public class Sword : Weapon
 {
     
+    private Animator anim;
     
     void Awake()
     {
+        anim = GetComponent<Animator>();
         _itemName = "Sword";
-
     }
-
 
     protected override void Start()
     {
@@ -20,7 +20,7 @@ public class Sword : Weapon
 
     public override void Use()
     {
-        
+        Debug.Log("Attacking...");
     }
 
 

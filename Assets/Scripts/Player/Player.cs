@@ -23,4 +23,9 @@ public class Player : MonoBehaviour
     {
         
     }
+
+    public void Use()
+    {
+        playerInv.itemInventory[0].Use();
+    }
 }

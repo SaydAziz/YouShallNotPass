@@ -7,10 +7,12 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(CapsuleCollider2D))]
 [RequireComponent(typeof(PlayerInput))]
+[RequireComponent(typeof(Player))]
 
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D rb;
+    private Player player;
 
     private float moveDir;
     private float moveDirCache;
@@ -28,6 +30,7 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        player = GetComponent<Player>();
     }
 
     // Start is called before the first frame update
@@ -84,6 +87,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void DoUse(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            player.Use();
+        }
+    }
 
     private IEnumerator CrouchReset()
     {

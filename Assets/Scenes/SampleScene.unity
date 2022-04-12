@@ -504,6 +504,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: b440f050-e90e-466b-84fc-c07a618c6bd9
     m_ActionName: GroundMovement/DoCrouch[/Keyboard/s]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1867267664}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: DoUse
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: fb46e0a5-3b0b-49b6-bc46-47caa562b434
+    m_ActionName: GroundMovement/DoUse[/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard
   m_DefaultActionMap: GroundMovement
@@ -602,11 +618,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7622052923745205794, guid: ceb3a1262dd2e9d449869518eace5288, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.97
+      value: -7.75
       objectReference: {fileID: 0}
     - target: {fileID: 7622052923745205794, guid: ceb3a1262dd2e9d449869518eace5288, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.15
+      value: -4.98
       objectReference: {fileID: 0}
     - target: {fileID: 7622052923745205794, guid: ceb3a1262dd2e9d449869518eace5288, type: 3}
       propertyPath: m_LocalPosition.z
