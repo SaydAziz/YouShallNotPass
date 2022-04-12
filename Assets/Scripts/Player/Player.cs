@@ -7,11 +7,15 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     private Inventory playerInv;
+    private Collider2D collider;
+    private RaycastHit2D hit;
 
+    private bool canJump = true;
     private float health = 100;
     void Awake()
     {
         playerInv = GetComponent<Inventory>();
+        collider = GetComponent<Collider2D>();
     }
 
     // Start is called before the first frame update
@@ -20,11 +24,26 @@ public class Player : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        hit = Physics2D.BoxCast(collider.bounds.center, collider.bounds.size, 0f, Vector2.down, 1, 1 << LayerMask.NameToLayer("Ground"));
+        Debug.DrawRay(collider.bounds.center - new Vector3(collider.bounds.extents.x, collider.bounds.extents.y + 0.1f, 0), Vector2.right * (collider.bounds.extents.x * 2), Color.red);
+        Debug.Log(GroundCheck());
     }
+
+    public bool GroundCheck()
+    {
+        Debug.Log(hit.collider);
+        if (hit.collider != null)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
 
     public void Use()
     {

@@ -284,7 +284,7 @@ GameObject:
   - component: {fileID: 1218460229}
   - component: {fileID: 1218460228}
   - component: {fileID: 1218460227}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -474,6 +474,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player2
       objectReference: {fileID: 0}
+    - target: {fileID: 3364602328624556486, guid: b1a3c970032874941a843c9777edfb2c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3364602328624556507, guid: b1a3c970032874941a843c9777edfb2c, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -527,9 +531,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3364602327431484476, guid: 25d8cc4b7ce2757419e3c835a8868930, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3364602328624556486, guid: 25d8cc4b7ce2757419e3c835a8868930, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3364602328624556486, guid: 25d8cc4b7ce2757419e3c835a8868930, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3364602328624556507, guid: 25d8cc4b7ce2757419e3c835a8868930, type: 3}
       propertyPath: m_RootOrder
