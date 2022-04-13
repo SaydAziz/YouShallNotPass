@@ -43,6 +43,8 @@ public class PlayerController : MonoBehaviour
     {
         if (!moveBlocked)
         {
+            if (moveDir > 0) moveDir = 1;
+            else if (moveDir < 0) moveDir = -1;
             rb.velocity = new Vector2((moveDir * moveSpeed), rb.velocity.y);
             player.CheckDir(moveDir);
             moveDirCache = rb.velocity.x;
