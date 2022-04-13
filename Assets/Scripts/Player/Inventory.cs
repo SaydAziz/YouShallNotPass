@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -30,5 +31,14 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    public void ClearInv()
+    {
+        foreach (Item item in itemInventory)
+        {
+            if (item == null) continue;
+            Destroy(item.gameObject);
+        }
+        //Array.Clear(itemInventory, 0, itemInventory.Length);
+    }
 
 }

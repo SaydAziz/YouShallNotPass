@@ -28,9 +28,4 @@ public class GameManager : MonoBehaviour
     {
         
     }
-
-    public void Spawn(GameObject obj)
-    {
-        Instantiate(obj, Vector3.zero, Quaternion.identity);
-    }
 }

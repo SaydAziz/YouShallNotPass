@@ -44,6 +44,7 @@ public class PlayerController : MonoBehaviour
         if (!moveBlocked)
         {
             rb.velocity = new Vector2((moveDir * moveSpeed), rb.velocity.y);
+            player.CheckDir(moveDir);
             moveDirCache = rb.velocity.x;
         }
         else if (crouching)

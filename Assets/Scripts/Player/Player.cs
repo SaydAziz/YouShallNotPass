@@ -7,10 +7,11 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     private Inventory playerInv;
-    private new Collider2D collider;
+    private Collider2D collider;
     private RaycastHit2D hit;
 
     private float health = 100;
+    private float cachedDir;
     void Awake()
     {
         playerInv = GetComponent<Inventory>();
@@ -20,19 +21,16 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     void FixedUpdate()
     {
         hit = Physics2D.BoxCast(collider.bounds.center, collider.bounds.size, 0f, Vector2.down, 1, 1 << LayerMask.NameToLayer("Ground"));
         Debug.DrawRay(collider.bounds.center - new Vector3(collider.bounds.extents.x, collider.bounds.extents.y + 0.1f, 0), Vector2.right * (collider.bounds.extents.x * 2), Color.red);
-        Debug.Log(GroundCheck());
     }
 
     public bool GroundCheck()
     {
-        Debug.Log(hit.collider);
         if (hit.collider != null)
         {
             return true;
@@ -49,6 +47,19 @@ public class Player : MonoBehaviour
         playerInv.itemInventory[0].Use();
     }
 
+    public void CheckDir(float moveDir)
+    {
+        if (moveDir == 0) return; //Guard clause 
+        Debug.Log("Cached: " + cachedDir);
+        Debug.Log("Move: " + moveDir);
+        if (moveDir != cachedDir)
+        {
+            gameObject.transform.localScale = gameObject.transform.localScale * -1;
+            cachedDir = moveDir;
+        }
+
+    }
+
     public void TakeDamage(float dmg)
     {
         health -= dmg;
@@ -56,12 +67,20 @@ public class Player : MonoBehaviour
         {
             health = 0;
             Die();
+            Respawn();
         }
     }
 
     private void Die()
     {
-        GameManager.Instance.Spawn(this.gameObject);
-        Destroy(this.gameObject);
+        gameObject.SetActive(false);
+    }
+
+    private void Respawn()
+    {
+        health = 100;
+        playerInv.ClearInv();
+        gameObject.transform.position = Vector2.zero; //technical dept
+        gameObject.SetActive(true);
     }
 }
