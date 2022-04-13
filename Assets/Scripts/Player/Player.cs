@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     private RaycastHit2D hit;
 
     private float health = 100;
-    private float cachedDir;
+    private float cachedDir = -1;
     void Awake()
     {
         playerInv = GetComponent<Inventory>();
