@@ -7,6 +7,9 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instance { get; private set;}
 
+    public GameObject[] player;
+    public Transform[] spawners;
+
     void Awake()
     {
         if (Instance !=null && Instance != this)
@@ -20,12 +23,18 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
-        
+       SetPlayerSpawn(1, 1); 
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+
+    private void SetPlayerSpawn(int playerIndex, int spawnIndex)
+    {
+        player[playerIndex - 1].GetComponent<Player>().SetRespawnLoc(spawners[spawnIndex - 1]);
     }
 }

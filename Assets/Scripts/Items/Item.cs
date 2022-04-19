@@ -42,7 +42,7 @@ public class Item : MonoBehaviour
             if (isPickedUp)
             {
                 Debug.Log("TESTING");
-                other.gameObject.GetComponent<Player>().TakeDamage(25f);   
+                other.gameObject.GetComponent<Player>().TakeDamage(100);   
             }
             else
             {    

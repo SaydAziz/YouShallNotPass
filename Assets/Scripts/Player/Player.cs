@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     private Inventory playerInv;
     private Collider2D collider;
     private RaycastHit2D hit;
+    private Transform respawnLoc;
 
     private float health = 100;
     private float cachedDir = -1;
@@ -76,11 +77,16 @@ public class Player : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+    public void SetRespawnLoc(Transform location)
+    {
+        respawnLoc = location;
+    }
+
     private void Respawn()
     {
         health = 100;
         playerInv.ClearInv();
-        gameObject.transform.position = Vector2.zero; //technical dept
+        gameObject.transform.position = respawnLoc.position;
         gameObject.SetActive(true);
     }
 }
