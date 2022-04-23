@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
        SetPlayerSpawn(1, 1); 
+       SetPlayerSpawn(2, 2); 
     }
 
     // Update is called once per frame
