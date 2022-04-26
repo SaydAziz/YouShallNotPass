@@ -80,7 +80,7 @@ public class Player : MonoBehaviour
         respawnLoc = location;
     }
 
-    private void Respawn()
+    public void Respawn()
     {
         health = 100;
         playerInv.ClearInv();

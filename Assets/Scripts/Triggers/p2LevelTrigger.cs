@@ -8,7 +8,7 @@ public class p2LevelTrigger : MonoBehaviour
     {
         if (other.gameObject.tag == "Player2")
         {
-            Debug.Log("NEXT LEVEL~~");
+            GameManager.Instance.SetLevel(-1);
         }
 
     }

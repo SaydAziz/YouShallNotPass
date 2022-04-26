@@ -16,13 +16,16 @@ public class Item : MonoBehaviour
     private Vector2 lerpPos1;
     private Vector2 lerpPos2;
     private float fraction = 0;
-
+    private Collider2D collider;
+    private SpriteRenderer renderer;
     protected bool isPickedUp = false;
 
     protected virtual void Start()
     {
         lerpPos1 = transform.position; 
         lerpPos2 = new Vector2(transform.position.x, transform.position.y + .3f);
+        collider = GetComponent<Collider2D>();
+        renderer = GetComponent<SpriteRenderer>();
         
     }
 
@@ -48,7 +51,7 @@ public class Item : MonoBehaviour
             {    
                 isPickedUp = true;
                 other.gameObject.GetComponent<Inventory>().AddItem(Dupe(other));
-                Destroy(this.gameObject);
+                StartCoroutine(TempDisable(2));
             }
         }
     }
@@ -70,9 +73,23 @@ public class Item : MonoBehaviour
         return addedItem;
     }
 
+    private IEnumerator TempDisable(int time)
+    {
+        setHide(false);
+        yield return new WaitForSeconds(time);
+        isPickedUp = false;
+        setHide(true);
+    }
+
     public void CopyData(string name, bool pickedUp)
     {
         _itemName = name;
         isPickedUp = pickedUp;
+    }
+
+    private void setHide(bool setting)
+    {
+        collider.enabled = setting;
+        renderer.enabled = setting;
     }
 }
