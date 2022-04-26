@@ -51,9 +51,11 @@ public class Player : MonoBehaviour
     public void CheckDir(float moveDir)
     {
         if (moveDir == 0) return; //Guard clause 
+        Debug.Log("Cached: " + cachedDir);
+        Debug.Log("Move: " + moveDir);
         if (moveDir != cachedDir)
         {
-            gameObject.transform.localScale = gameObject.transform.localScale * -1;
+            gameObject.transform.localScale = new Vector2(gameObject.transform.localScale.x * -1, gameObject.transform.localScale.y);
             cachedDir = moveDir;
         }
 

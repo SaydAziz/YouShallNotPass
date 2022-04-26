@@ -8,6 +8,14 @@ public class EndTrigger : MonoBehaviour
     {
         if (other.gameObject.tag == "Player" || other.gameObject.tag == "Player2")
         {
+            if (other.gameObject.tag == "Player")
+            {
+                GameManager.Instance.AddScore(1);
+            }
+            else if (other.gameObject.tag == "Player2")
+            {
+                GameManager.Instance.AddScore(2);
+            }
             StartCoroutine(GameManager.Instance.ResetGame());
         }
 

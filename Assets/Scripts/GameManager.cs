@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//Helped by Medussa
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,6 +15,10 @@ public class GameManager : MonoBehaviour
     private int p2Spawn = 4;
     private int camPosIndex = 1;
     private Camera cam;
+    private int p1Score = 0;
+    private int p2Score = 0;
+    public Text p1ScoreTxt;
+    public Text p2ScoreTxt;
 
     void Awake()
     {
@@ -53,6 +57,7 @@ public class GameManager : MonoBehaviour
         camPosIndex += next;
         UpdateSpawners();
         cam.transform.position = camPos[camPosIndex].position;
+        cam.backgroundColor = SwitchColor();
         
     }
 
@@ -73,8 +78,28 @@ public class GameManager : MonoBehaviour
         camPosIndex = 1;
         UpdateSpawners();
         cam.transform.position = camPos[camPosIndex].position;
+        cam.backgroundColor = Color.red;
         yield return new WaitForSecondsRealtime(1);
-        
         Time.timeScale = 1;
+    }
+
+    private Color SwitchColor()
+    {
+        
+        return cam.backgroundColor == Color.blue ? Color.red : Color.blue;     
+    }
+
+    public void AddScore(int player)
+    {
+        if (player == 1)
+        {
+            p1Score++;
+            p1ScoreTxt.text = "Player 1: " + p1Score.ToString();
+        }
+        else if (player == 2)
+        {
+            p2Score++;
+            p2ScoreTxt.text = "Player 2: " + p1Score.ToString();
+        }
     }
 }
