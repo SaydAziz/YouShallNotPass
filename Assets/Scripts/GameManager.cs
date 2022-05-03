@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     private int p2Score = 0;
     public Text p1ScoreTxt;
     public Text p2ScoreTxt;
+    public Text winnerTxt;
 
     void Awake()
     {
@@ -70,6 +71,7 @@ public class GameManager : MonoBehaviour
 
     }
 
+    bool finished =  false;
     public IEnumerator ResetGame()
     {
         Time.timeScale = 0;
@@ -79,8 +81,25 @@ public class GameManager : MonoBehaviour
         UpdateSpawners();
         cam.transform.position = camPos[camPosIndex].position;
         cam.backgroundColor = Color.red;
-        yield return new WaitForSecondsRealtime(1);
+        if (p1Score == 5 || p2Score == 5)
+        {
+           if (p1Score == 5)
+           {
+               ShowWinner("Player1");
+
+           } 
+           else if (p2Score == 5)
+           {
+               ShowWinner("Player2");
+           }
+        }
+        //foreach (GameObject p in player)
+        //{
+        //    p.GetComponent<PlayerController>().ForceUncrouch();
+        //}
+        yield return new WaitForSecondsRealtime(3);
         Time.timeScale = 1;
+        winnerTxt.text = " ";
     }
 
     private Color SwitchColor()
@@ -99,7 +118,17 @@ public class GameManager : MonoBehaviour
         else if (player == 2)
         {
             p2Score++;
-            p2ScoreTxt.text = "Player 2: " + p1Score.ToString();
+            p2ScoreTxt.text = "Player 2: " + p2Score.ToString();
         }
+    }
+
+
+    private void ShowWinner(string player)
+    {
+        winnerTxt.text = player + " is the winner!";
+        p1Score = 0;
+        p2Score = 0;
+        p1ScoreTxt.text = "Player1: " + p1Score.ToString();
+        p2ScoreTxt.text = "Player2: " + p2Score.ToString();
     }
 }

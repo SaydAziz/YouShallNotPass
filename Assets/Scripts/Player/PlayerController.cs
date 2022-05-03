@@ -100,9 +100,16 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator CrouchReset()
     {
-        yield return new WaitForSeconds(crouchTime);
+        yield return new WaitForSecondsRealtime(crouchTime);
         moveBlocked = false;
         crouching = false;
         transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y * 2, transform.localScale.z);
+    }
+    public void ForceUncrouch()
+    {
+
+        moveBlocked = false;
+        crouching = false;
+
     }
 }
