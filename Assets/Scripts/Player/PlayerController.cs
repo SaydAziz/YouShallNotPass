@@ -72,7 +72,7 @@ public class PlayerController : MonoBehaviour
 
     public void DoJump(InputAction.CallbackContext context)
     {
-        if (context.started && player.GroundCheck())
+        if (context.started && player.GroundCheck()&&GameManager.Instance.gamePlaying)
         {
             rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
         }

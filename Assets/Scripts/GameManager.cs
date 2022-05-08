@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     public Text p1ScoreTxt;
     public Text p2ScoreTxt;
     public Text winnerTxt;
+    public bool gamePlaying = true;
 
     void Awake()
     {
@@ -75,6 +76,7 @@ public class GameManager : MonoBehaviour
     public IEnumerator ResetGame()
     {
         Time.timeScale = 0;
+        gamePlaying = false;
         p1Spawn = 3;
         p2Spawn = 4;
         camPosIndex = 1;
@@ -100,6 +102,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(3);
         Time.timeScale = 1;
         winnerTxt.text = " ";
+        gamePlaying = true;
     }
 
     private Color SwitchColor()
