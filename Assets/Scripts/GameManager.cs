@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     public Text p2ScoreTxt;
     public Text winnerTxt;
     public bool gamePlaying = true;
+    public MenuManager menuManager;
 
     void Awake()
     {
@@ -38,6 +39,8 @@ public class GameManager : MonoBehaviour
        SetPlayerSpawn(1, p1Spawn); 
        SetPlayerSpawn(2, p2Spawn); 
        cam = Camera.main;
+       cam.backgroundColor = Color.black;
+       finished = false;
     }
 
     // Update is called once per frame
@@ -59,7 +62,18 @@ public class GameManager : MonoBehaviour
         camPosIndex += next;
         UpdateSpawners();
         cam.transform.position = camPos[camPosIndex].position;
-        cam.backgroundColor = SwitchColor();
+        if (p1Spawn < 3)
+        {
+            cam.backgroundColor = Color.red;
+        }
+        else if (p1Spawn > 4)
+        {
+            cam.backgroundColor = Color.blue;
+        }
+        else if (p1Spawn == 3)
+        {
+            cam.backgroundColor = Color.black;
+        }
         
     }
 
@@ -82,24 +96,28 @@ public class GameManager : MonoBehaviour
         camPosIndex = 1;
         UpdateSpawners();
         cam.transform.position = camPos[camPosIndex].position;
-        cam.backgroundColor = Color.red;
+        cam.backgroundColor = Color.black;
         if (p1Score == 5 || p2Score == 5)
         {
            if (p1Score == 5)
            {
                ShowWinner("Player1");
-
            } 
            else if (p2Score == 5)
            {
                ShowWinner("Player2");
            }
+            finished = true;
         }
         //foreach (GameObject p in player)
         //{
         //    p.GetComponent<PlayerController>().ForceUncrouch();
         //}
         yield return new WaitForSecondsRealtime(3);
+        if (finished)
+        {
+            menuManager.MainMenu();
+        }
         Time.timeScale = 1;
         winnerTxt.text = " ";
         gamePlaying = true;
