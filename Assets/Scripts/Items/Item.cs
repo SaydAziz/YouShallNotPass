@@ -16,8 +16,8 @@ public class Item : MonoBehaviour
     private Vector2 lerpPos1;
     private Vector2 lerpPos2;
     private float fraction = 0;
-    private Collider2D collider;
-    private SpriteRenderer renderer;
+    protected Collider2D collider;
+    protected SpriteRenderer renderer;
     protected bool isPickedUp = false;
 
     protected virtual void Start()
@@ -26,7 +26,11 @@ public class Item : MonoBehaviour
         lerpPos2 = new Vector2(transform.position.x, transform.position.y + .3f);
         collider = GetComponent<Collider2D>();
         renderer = GetComponent<SpriteRenderer>();
-        
+        if (isPickedUp)
+        {
+            renderer.enabled = false;
+            collider.enabled = false;
+        } 
     }
 
     void FixedUpdate()

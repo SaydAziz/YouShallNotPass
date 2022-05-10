@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Sword : Weapon
 {
-    
-    
     void Awake()
     {
         _itemName = "Sword";
@@ -18,6 +16,8 @@ public class Sword : Weapon
 
     public override void Use()
     {
+        renderer.enabled = true;
+        collider.enabled = true;
         anim.SetTrigger("Attacking");
         base.Use();
     }
